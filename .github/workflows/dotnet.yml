@@ -1,0 +1,32 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-lat
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: setup-Msbuild
+      uses: microsoft/setup-msbuild@v1.1
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.6
+      
+    - name: Restore Nuget packages
+      run: nuget restore AEM-Web-core.WebForms.sln
+      
+    - name: Build the Solution
+      run: msbuild ARM-Web-core.WebForms.sln
+      
+      
+    
+    
+    
