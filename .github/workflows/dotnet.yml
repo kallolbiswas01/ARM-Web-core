@@ -20,11 +20,6 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.6
       
-    - name: Restore Nuget packages
-      run: nuget restore AEM-Web-core.MVC.sln
-      
-    - name: Build the Solution
-      run: msbuild ARM-Web-core.MVC.sln
       
       
     
